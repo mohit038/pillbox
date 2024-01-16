@@ -23,6 +23,7 @@ function PillBox(props: PillBoxInterface) {
       user.name.toLowerCase().includes(text.toLowerCase())
     );
     setSearchResults(results);
+    setFocusedItem(0);
   };
 
   const onUserSelect = (id: number) => {
@@ -33,10 +34,12 @@ function PillBox(props: PillBoxInterface) {
   };
 
   const onPillRemove = (id: number) => {
-    setSelectedUsers(selectedUsers.filter((user) => user !== id));
+    setSelectedUsers((selectedUsers) =>
+      selectedUsers.filter((user) => user !== id)
+    );
     const user = data.find((user) => user.id === id);
     if (!user) return;
-    setSearchResults([...searchResults, user]);
+    setSearchResults((searchResults) => [...searchResults, user]);
   };
 
   const onKeyDownHandler = (e: React.KeyboardEvent<HTMLDivElement>) => {
