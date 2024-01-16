@@ -66,7 +66,7 @@ function Search(props: SearchInterface) {
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
         value={searchText}
-        placeholder="Search bbt members.."
+        placeholder="Search character..."
         className="w-full px-4  py-2 h-12 text-xl border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent"
         onChange={onSearchTextChange}
       />
