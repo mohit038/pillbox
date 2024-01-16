@@ -2,9 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Live at: https://pillbox-plum.vercel.app/
 
+## Demo
+
+
+https://github.com/mohit038/pillbox/assets/112958629/da04e8fe-e734-48d4-96b0-63f187f87cbe
+
+
+
+
 ## ScreenShots
 <img width="1440" alt="Screenshot 2024-01-16 at 8 33 25 PM" src="https://github.com/mohit038/pillbox/assets/112958629/bfa87bf7-250b-41ae-9a4f-1618a746b08a">
-
 <img width="1440" alt="Screenshot 2024-01-16 at 8 31 44 PM" src="https://github.com/mohit038/pillbox/assets/112958629/c770c744-42ac-4151-b2f1-47313105c340">
 
 
