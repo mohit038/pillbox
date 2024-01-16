@@ -12,6 +12,13 @@ interface SearchSuggestionInterface {
 
 function SearchSuggestion(props: SearchSuggestionInterface) {
   const { data, onUserSelect, focusedItem, onMouseDown, onMouseUp } = props;
+  const optionRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+
+  React.useEffect(() => {
+    if (!focusedItem) return;
+    const focusedOption = optionRefs.current[focusedItem];
+    focusedOption?.scrollIntoView({ behavior: "instant", block: "nearest" });
+  }, [focusedItem]);
 
   if (!data || !data.length)
     return (
@@ -33,6 +40,8 @@ function SearchSuggestion(props: SearchSuggestionInterface) {
     >
       {data.map((user: User, index) => (
         <Option
+          ref={(el) => (optionRefs.current[index] = el)}
+          index={index}
           key={index}
           user={user}
           focus={focusedItem == index}
