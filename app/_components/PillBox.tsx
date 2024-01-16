@@ -15,13 +15,23 @@ function PillBox(props: PillBoxInterface) {
   const [searchText, setSearchText] = React.useState("");
   const [focusedPill, setFocusedPill] = React.useState<number | null>(null);
 
+  useEffect(() => {
+    console.log("selected users", selectedUsers);
+  }, [selectedUsers]);
+
+  useEffect(() => {
+    console.log("search", searchResults);
+  }, [searchResults]);
+
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
     setSearchText(text);
-    const results = data.filter((user) =>
-      user.name.toLowerCase().includes(text.toLowerCase())
+    const suggestions = data.filter(
+      (user) =>
+        user.name.toLowerCase().includes(text.toLowerCase()) &&
+        !selectedUsers.includes(user.id)
     );
-    setSearchResults(results);
+    setSearchResults(suggestions);
   };
 
   const onUserSelect = (id: number) => {
