@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import User from "../_types/UserData";
+import User from "../_types/User";
 
 interface OptionInterface {
   user: User;
