@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import User from "../_types/User";
 import Search from "./Search";
-import Pill from "./Pill";
 import PillRenderer from "./PillRenderer";
 
 interface PillBoxInterface {
@@ -14,14 +13,6 @@ function PillBox(props: PillBoxInterface) {
   const [selectedUsers, setSelectedUsers] = React.useState<number[]>([]);
   const [searchText, setSearchText] = React.useState("");
   const [focusedPill, setFocusedPill] = React.useState<number | null>(null);
-
-  useEffect(() => {
-    console.log("selected users", selectedUsers);
-  }, [selectedUsers]);
-
-  useEffect(() => {
-    console.log("search", searchResults);
-  }, [searchResults]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
