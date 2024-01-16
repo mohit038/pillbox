@@ -1,9 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Pill from "./_components/Pill";
-import Option from "./_components/Option";
-import Search from "./_components/Search";
 import React from "react";
 import PillBox from "./_components/PillBox";
 
@@ -83,8 +79,6 @@ const userData = [
 ];
 
 export default function Home() {
-  const [searchResults, setSearchResults] = React.useState(userData);
-  const [selectedUsers, setSelectedUsers] = React.useState([]);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <PillBox data={userData} />
