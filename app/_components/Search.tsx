@@ -1,13 +1,12 @@
-import React, { use, useEffect } from "react";
+import React from "react";
 import User from "../_types/User";
 import SearchSuggestion from "./SearchSuggestion";
-import { SourceTextModule } from "vm";
 
 interface SearchInterface {
   searchText?: string;
   searchResults?: User[];
   onUserSelect: (id: number) => void;
-  onChangeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function Search(props: SearchInterface) {
@@ -16,6 +15,11 @@ function Search(props: SearchInterface) {
   const [focus, setFocus] = React.useState(false);
   const [focusedItem, setFocusedItem] = React.useState(0);
   const [mouseDown, setMouseDown] = React.useState(false);
+
+  const onSearchTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFocusedItem(0);
+    onChangeHandler(e);
+  };
 
   const onFocusHandler = () => {
     setFocus(true);
@@ -64,7 +68,7 @@ function Search(props: SearchInterface) {
         value={searchText}
         placeholder="Search bbt members.."
         className="w-full px-4  py-2 h-12 text-xl border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent"
-        onChange={onChangeHandler}
+        onChange={onSearchTextChange}
       />
       {focus && (
         <SearchSuggestion

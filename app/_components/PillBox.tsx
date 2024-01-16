@@ -13,7 +13,6 @@ function PillBox(props: PillBoxInterface) {
   const [searchResults, setSearchResults] = React.useState<User[]>(data);
   const [selectedUsers, setSelectedUsers] = React.useState<number[]>([]);
   const [searchText, setSearchText] = React.useState("");
-  const [focusedItem, setFocusedItem] = React.useState(0);
   const [focusedPill, setFocusedPill] = React.useState<number | null>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +22,6 @@ function PillBox(props: PillBoxInterface) {
       user.name.toLowerCase().includes(text.toLowerCase())
     );
     setSearchResults(results);
-    setFocusedItem(0);
   };
 
   const onUserSelect = (id: number) => {
@@ -51,24 +49,6 @@ function PillBox(props: PillBoxInterface) {
         setFocusedPill(null);
       } else if (selectedUsers.length > 0) {
         setFocusedPill(selectedUsers[selectedUsers.length - 1]);
-      }
-    }
-    if (e.key === "ArrowLeft") {
-      if (searchText.length) return;
-      if (!selectedUsers.length) return;
-      if (focusedItem === 0) {
-        setFocusedItem(selectedUsers.length - 1);
-      } else {
-        setFocusedItem(focusedItem - 1);
-      }
-    }
-    if (e.key === "ArrowRight") {
-      if (searchText.length) return;
-      if (!selectedUsers.length) return;
-      if (focusedItem === selectedUsers.length - 1) {
-        setFocusedItem(0);
-      } else {
-        setFocusedItem(focusedItem + 1);
       }
     }
   };
